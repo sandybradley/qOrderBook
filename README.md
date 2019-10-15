@@ -1,10 +1,6 @@
-# QMonitor
+# QOrderBook
 
-Real-time directional trade volume for bitcoin to fiat markets on Binance, Bitfinex, Bitstamp, Kraken and CoinbasePro, written in KDB+.
-
-Bittrex, Poloniex and Gemini to be included. The focus of this script is to enable real-time monitor of spot trades between bitcoin and fiat currencies. I have used the largest exchanges by 24 hour volume without fake volume reports. 
-
-Real-time logging in the trades table enables real-time signals and triggers. See https://github.com/sandybradley/qSignals.
+OrderBook snapshot for Binance, Kraken, Coinbase, Bitstamp, Bitfinex, bitFlyer, Poloniex, Gemini, itBit, Bittrex.
 
 Pre-requisites:
 
@@ -12,13 +8,13 @@ KDB+ (https://kx.com/connect-with-us/download/)
 
 Start with:
 
-\l qmonitor.q
+\l qOrderBook.q
 
-View trades table
+View bar chart with qstudio (http://www.timestored.com/qstudio/)
 
-http://localhost:5010/
+select price:string price,size:size from () xkey select sum size by 100.0 xbar price from orderbook where price within (4000;20000)
 
-WARNING - live trade monitoring consumes alot of bandwidth and logging takes alot of storage. Please monitor and adjust accordingly.
+![alt text](OBSnapshot.png)
 
 # Karma jar
 
